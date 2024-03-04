@@ -19,6 +19,11 @@ Command Line:
 - Chalk: [docs](https://www.npmjs.com/package/chalk)
 - Console.tale [docs](https://www.npmjs.com/package/console.table)
 
+Security:
+
+- dotenv: [docs](https://www.npmjs.com/package/dotenv)
+- env example file provided
+
 ## Usage
 
 ## Installation
