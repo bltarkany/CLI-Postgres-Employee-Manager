@@ -140,9 +140,13 @@ const updateEmpManager = async () => {
 
 // delete depts
 const deleteDept = async () => {
-  // TEST: test dept arr
-  const deptArr = getDepts();
-  //   TODO: add prompt and class method
+  const deptArr = await getDepts();
+  //   TEST: add prompt and class method
+  const answers = await prompt(deleteDept(deptArr));
+  const { rowCount } = await client.delete_dept(answers);
+  console.log('\n', `${rowCount} department deleted.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 // delete roles
 const deleteRole = async () => {
