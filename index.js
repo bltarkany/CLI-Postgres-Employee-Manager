@@ -120,7 +120,6 @@ const addRole = async () => {
 const updateEmpRole = async () => {
   const roleArr = await getRoles();
   const empArr = await getEmployees();
-  //   TEST: add prompt and class method
   const answers = await prompt(empRole(empArr, roleArr));
   const { rowCount } = await client.update_emp_role(answers);
   console.log('\n', `${rowCount} employee updated.`);
@@ -130,7 +129,6 @@ const updateEmpRole = async () => {
 // update emp manager
 const updateEmpManager = async () => {
   const empArr = await getEmployees();
-  //   TEST: add prompt and class method
   const answers = await prompt(empManager(empArr));
   const { rowCount } = await client.update_emp_manager(answers);
   console.log('\n', `${rowCount} employee updated.`);
@@ -141,8 +139,7 @@ const updateEmpManager = async () => {
 // delete depts
 const deleteDept = async () => {
   const deptArr = await getDepts();
-  //   TEST: add prompt and class method
-  const answers = await prompt(deleteDept(deptArr));
+  const answers = await prompt(deptdelete(deptArr));
   const { rowCount } = await client.delete_dept(answers);
   console.log('\n', `${rowCount} department deleted.`);
   console.log('<----------------------------------->', '\n');
@@ -151,8 +148,7 @@ const deleteDept = async () => {
 // delete roles
 const deleteRole = async () => {
   const roleArr = await getRoles();
-  //   TEST: add prompt and class method
-  const answers = await prompt(deleteRole(roleArr));
+  const answers = await prompt(roledelete(roleArr));
   const { rowCount } = await client.delete_role(answers);
   console.log('\n', `${rowCount} role deleted.`);
   console.log('<----------------------------------->', '\n');
@@ -161,8 +157,7 @@ const deleteRole = async () => {
 // delete employees
 const deleteEmp = async () => {
   const empArr = await getEmployees();
-  //   TEST: add prompt and class method
-  const answers = await prompt(deleteEmp(empArr));
+  const answers = await prompt(empdelete(empArr));
   const { rowCount } = await client.delete_emp(answers);
   console.log('\n', `${rowCount} employee deleted.`);
   console.log('<----------------------------------->', '\n');
