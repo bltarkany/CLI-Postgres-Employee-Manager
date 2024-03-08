@@ -150,9 +150,13 @@ const deleteDept = async () => {
 };
 // delete roles
 const deleteRole = async () => {
-  // TEST arr retrieval
   const roleArr = await getRoles();
   //   TODO: add prompt and class method
+  const answers = await prompt(deleteRole(roleArr));
+  const { rowCount } = await client.delete_role(answers);
+  console.log('\n', `${rowCount} role deleted.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 // delete employees
 const deleteEmp = async () => {
