@@ -129,9 +129,13 @@ const updateEmpRole = async () => {
 };
 // update emp manager
 const updateEmpManager = async () => {
-  // TEST arr retrieval
   const empArr = await getEmployees();
-  //   FIXME: add prompt and class method
+  //   TEST: add prompt and class method
+  const answers = await prompt(empManager(empArr));
+  const { rowCount } = await client.update_emp_manager(answers);
+  console.log('\n', `${rowCount} employee updated.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 
 // delete depts
