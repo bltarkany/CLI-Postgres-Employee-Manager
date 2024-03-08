@@ -118,10 +118,14 @@ const addRole = async () => {
 
 // update emp role
 const updateEmpRole = async () => {
-  // TEST arr retrieval
   const roleArr = await getRoles();
   const empArr = await getEmployees();
-  //   TODO: add prompt and class method
+  //   TEST: add prompt and class method
+  const answers = await prompt(empRole(empArr, roleArr));
+  const { rowCount } = await client.update_emp_role(answers);
+  console.log('\n', `${rowCount} employee updated.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 // update emp manager
 const updateEmpManager = async () => {
