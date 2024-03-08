@@ -79,9 +79,7 @@ const viewEmp = async () => {
 };
 // view employees
 const viewEmpManager = async () => {
-  // TEST: test that this dept arr retrieval works
   const empArr = await getEmployees();
-  console.log(empArr);
   const answers = await prompt(empsByManager(empArr));
   const { rows } = await client.viewEmpsByManager(answers);
   console.log('\n', 'Employees By Selected Manager: ');
@@ -100,10 +98,8 @@ const addDept = async () => {
 };
 // add employee
 const addEmp = async () => {
-  // TEST: test arr retrieval from get functions
   const roleArr = await getRoles();
   const empArr = await getEmployees();
-  console.log(roleArr, empArr);
   const answers = await prompt(employee(roleArr, empArr));
   const { rowCount } = await client.add_emp(answers);
   console.log('\n', `${rowCount} employee inserted.`);
@@ -112,8 +108,7 @@ const addEmp = async () => {
 };
 // add role
 const addRole = async () => {
-  // TEST: test dept arr
-  const deptArr = getDepts();
+  const deptArr = await getDepts();
   const answers = await prompt(role(deptArr));
   const { rowCount } = await client.add_role(answers);
   console.log('\n', `${rowCount} role inserted.`);
