@@ -57,8 +57,10 @@ const viewEmpManager = async () => {
 // add dept
 const addDept = async () => {
   const answers = await prompt(dept);
-  const res = await client.add_dept(answers);
-  console.log(res);
+  const { rowCount } = await client.add_dept(answers);
+  console.log('\n', `${rowCount} department inserted.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 // add employee
 const addEmp = async () => {
