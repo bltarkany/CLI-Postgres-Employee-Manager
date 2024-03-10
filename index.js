@@ -8,7 +8,7 @@ const client = require('./lib/client');
 // question arrays
 const { menuOptions } = require('./lib/questions');
 const { dept } = require('./lib/dept_questions');
-const { employee } = require('./lib/emp_questions');
+const { employee, empsByManager } = require('./lib/emp_questions');
 const { role } = require('./lib/role_questions');
 
 // action functions
@@ -47,7 +47,14 @@ const viewEmp = async () => {
 };
 // view employees
 const viewEmpManager = async () => {
-  const { rows } = await client.viewEmpsByManager();
+  // retrieve arrays first
+  const roles = await client.role_arr();
+  const roleArr = roles.rows.map((role) => ({
+    name: role.title,
+    value: role.id,
+  }));
+  const answers = await prompt(empsByManager(roleArr));
+  const { rows } = await client.viewEmpsByManager(answers);
   console.log('\n', 'Employees By Selected Manager: ');
   console.log('<----------------------------------->', '\n');
   console.table(rows, '\n');
