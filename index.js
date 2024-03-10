@@ -97,9 +97,28 @@ const addRole = async () => {
 };
 
 // update emp role
-const updateEmpRole = async () => {};
+const updateEmpRole = async () => {
+  // retrieve arrays first
+  const roles = await client.role_arr();
+  const roleArr = roles.rows.map((role) => ({
+    name: role.title,
+    value: role.id,
+  }));
+  const emps = await client.emp_arr();
+  const empArr = emps.rows.map((emp) => ({
+    name: `${emp.first_name} ${emp.last_name}`,
+    value: emp.id,
+  }));
+};
 // update emp manager
-const updateEmpManager = async () => {};
+const updateEmpManager = async () => {
+  // retrieve arrays first
+  const emps = await client.emp_arr();
+  const empArr = emps.rows.map((emp) => ({
+    name: `${emp.first_name} ${emp.last_name}`,
+    value: emp.id,
+  }));
+};
 
 // delete depts
 const deleteDept = async () => {};
