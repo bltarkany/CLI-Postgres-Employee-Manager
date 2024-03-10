@@ -84,9 +84,16 @@ const addEmp = async () => {
 // add role
 const addRole = async () => {
   // retrieve arrays first
+  const depts = await client.dept_arr();
+  const deptArr = depts.rows.map((dept) => ({
+    name: dept.name,
+    value: dept.id,
+  }));
   const answers = await prompt(role(deptArr));
-  const res = await client.add_role(answers);
-  console.log(res);
+  const { rowCount } = await client.add_role(answers);
+  console.log('\n', `${rowCount} role inserted.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 
 // update emp role
