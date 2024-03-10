@@ -64,6 +64,8 @@ const addDept = async () => {
 const addEmp = async () => {
   // retrieve arrays first
   const answers = await prompt(employee(roleArr, empArr));
+  const res = await client.add_emp(answers);
+  console.log(res);
 };
 // add role
 const addRole = async () => {
