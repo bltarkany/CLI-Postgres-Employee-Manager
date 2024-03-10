@@ -7,9 +7,15 @@ const client = require('./lib/client');
 
 // question arrays
 const { menuOptions } = require('./lib/questions');
-const { dept } = require('./lib/dept_questions');
-const { employee, empsByManager } = require('./lib/emp_questions');
-const { role } = require('./lib/role_questions');
+const { dept, deptdelete } = require('./lib/dept_questions');
+const {
+  employee,
+  empsByManager,
+  empManager,
+  empRole,
+  empdelete,
+} = require('./lib/emp_questions');
+const { role, roledelete } = require('./lib/role_questions');
 
 // action functions
 
