@@ -56,14 +56,14 @@ const viewEmpManager = async () => {
 
 // add dept
 const addDept = async () => {
-  const { name } = await prompt(dept);
+  const answers = await prompt(dept);
+  const res = await client.add_dept(answers);
+  console.log(res);
 };
 // add employee
 const addEmp = async () => {
   // retrieve arrays first
-  const { first_name, last_name, role_id, manager_id } = await prompt(
-    employee(roleArr, empArr)
-  );
+  const answers = await prompt(employee(roleArr, empArr));
 };
 // add role
 const addRole = async () => {
