@@ -121,11 +121,32 @@ const updateEmpManager = async () => {
 };
 
 // delete depts
-const deleteDept = async () => {};
+const deleteDept = async () => {
+  // retrieve arrays first
+  const depts = await client.dept_arr();
+  const deptArr = depts.rows.map((dept) => ({
+    name: dept.name,
+    value: dept.id,
+  }));
+};
 // delete roles
-const deleteRole = async () => {};
+const deleteRole = async () => {
+  // retrieve arrays first
+  const roles = await client.role_arr();
+  const roleArr = roles.rows.map((role) => ({
+    name: role.title,
+    value: role.id,
+  }));
+};
 // delete employees
-const deleteEmp = async () => {};
+const deleteEmp = async () => {
+  // retrieve arrays first
+  const emps = await client.emp_arr();
+  const empArr = emps.rows.map((emp) => ({
+    name: `${emp.first_name} ${emp.last_name}`,
+    value: emp.id,
+  }));
+};
 
 // main menu
 const main = async () => {
