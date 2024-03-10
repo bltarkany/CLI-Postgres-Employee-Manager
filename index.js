@@ -45,6 +45,14 @@ const viewEmp = async () => {
   console.table(rows, '\n');
   main();
 };
+// view employees
+const viewEmpManager = async () => {
+  const { rows } = await client.viewEmpsByManager();
+  console.log('\n', 'Employees By Selected Manager: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
 
 // add dept
 const addDept = async () => {
@@ -91,6 +99,9 @@ const main = async () => {
       break;
     case 'view employees':
       viewEmp();
+      break;
+    case 'view employees by manager':
+      viewEmpManager();
       break;
     case 'add department':
       addDept();
