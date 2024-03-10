@@ -70,7 +70,9 @@ const addEmp = async () => {
 // add role
 const addRole = async () => {
   // retrieve arrays first
-  const { title, salary, department_id } = await prompt(role(deptArr));
+  const answers = await prompt(role(deptArr));
+  const res = await client.add_role(answers);
+  console.log(res);
 };
 
 // update emp role
