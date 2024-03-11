@@ -30,7 +30,13 @@ const viewDeptWBudget = async () => {
   main();
 };
 // view roles
-const viewRole = async () => {};
+const viewRole = async () => {
+  const { rows } = await client.viewRoles();
+  console.log('\n', 'Roles: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
 // view employees
 const viewEmp = async () => {};
 
