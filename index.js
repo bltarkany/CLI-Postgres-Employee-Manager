@@ -38,7 +38,13 @@ const viewRole = async () => {
   main();
 };
 // view employees
-const viewEmp = async () => {};
+const viewEmp = async () => {
+  const { rows } = await client.viewEmps();
+  console.log('\n', 'Employees: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
 
 // add dept
 const addDept = async () => {
