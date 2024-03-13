@@ -8,15 +8,21 @@ CREATE DATABASE employee_manager_db;
 
 -- create department table
 CREATE TABLE department(
-    id SERIAL PRIMARY KEY
+    id SMALLSERIAL PRIMARY KEY,
+    name VARCHAR(45) NOT NULL
 );
 
 -- create role table
 CREATE TABLE role(
-    id SERIAL PRIMARY KEY
+    id SMALLSERIAL PRIMARY KEY,
+    title VARCHAR(45) NOT NULL,
+    salary NUMERIC(10,2) NOT NULL,
+    department_id INTEGER NOT NULL,
+    FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
 
 -- create employee table
 CREATE TABLE employee(
-    id SERIAL PRIMARY KEY
+    id SMALLSERIAL PRIMARY KEY,
+    
 );
