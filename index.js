@@ -6,7 +6,10 @@ require('console.table');
 const client = require('./lib/client');
 
 // question arrays
-const { menuOptions, dept, role, employee } = require('./lib/questions');
+const { menuOptions } = require('./lib/questions');
+const { dept } = require('./lib/dept_questions');
+const { employee } = require('./lib/emp_questions');
+const { role } = require('./lib/role_questions');
 
 // action functions
 
