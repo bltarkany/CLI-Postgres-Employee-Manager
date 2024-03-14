@@ -19,18 +19,19 @@ const viewEmp = async () => {};
 
 // add dept
 const addDept = async () => {
-  const { title, salary, department_id } = await prompt(role(testarr));
-  console.log({ title, salary, department_id });
+  const { name } = await prompt(dept);
 };
 // add employee
 const addEmp = async () => {
-  const { title, salary, department_id } = await prompt(role(testarr));
-  console.log({ title, salary, department_id });
+  // retrieve arrays first
+  const { first_name, last_name, role_id, manager_id } = await prompt(
+    employee(roleArr, empArr)
+  );
 };
 // add role
 const addRole = async () => {
-  const { title, salary, department_id } = await prompt(role(testarr));
-  console.log({ title, salary, department_id });
+  // retrieve arrays first
+  const { title, salary, department_id } = await prompt(role(deptArr));
 };
 
 // update emp role
