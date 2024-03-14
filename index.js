@@ -3,25 +3,10 @@ const { runLogo } = require('./lib/logo');
 require('console.table');
 
 // database class
-const Client = require('./lib/client');
+const client = require('./lib/client');
 
 // question arrays
 const { menuOptions, dept, role, employee } = require('./lib/questions');
-
-const testarr = [
-  {
-    name: 'one',
-    value: 1,
-  },
-  {
-    name: 'two',
-    value: 2,
-  },
-  {
-    name: 'three',
-    value: 3,
-  },
-];
 
 // action functions
 
@@ -48,6 +33,18 @@ const addRole = async () => {
   console.log({ title, salary, department_id });
 };
 
+// update emp role
+const updateEmpRole = async () => {};
+// update emp manager
+const updateEmpManager = async () => {};
+
+// delete depts
+const deleteDept = async () => {};
+// delete roles
+const deleteRole = async () => {};
+// delete employees
+const deleteEmp = async () => {};
+
 // main menu
 const main = async () => {
   const { option } = await prompt(menuOptions);
@@ -71,8 +68,27 @@ const main = async () => {
     case 'add role':
       addRole();
       break;
-
+    case 'update employee role':
+      updateEmpRole();
+      break;
+    case 'update employee manager':
+      updateEmpManager();
+      break;
+    case 'delete department':
+      deleteDept();
+      break;
+    case 'delete role':
+      deleteRole();
+      break;
+    case 'delete employee':
+      deleteEmp();
+      break;
+    case 'quit':
+      client.endPool();
+      break;
+    // end connection as default
     default:
+      client.endPool();
       break;
   }
 };
