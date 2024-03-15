@@ -12,6 +12,19 @@ Postgres:
 
 - Node Postgres NPM package: [docs](https://www.npmjs.com/package/pg)
 
+Javascript:
+
+- ES6 features
+- Object Oriented Programming
+- async/await
+- modules
+-
+
+Environment:
+
+- Node.js
+- NPM
+
 Command Line:
 
 - Inquirer: [docs](https://www.npmjs.com/package/inquirer?activeTab=readme)
