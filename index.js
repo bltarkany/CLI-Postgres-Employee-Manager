@@ -14,7 +14,21 @@ const { role } = require('./lib/role_questions');
 // action functions
 
 // view depts
-const viewDept = async () => {};
+const viewDept = async () => {
+  const { rows } = await client.viewDepts();
+  console.log('\n', 'Departments: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows);
+  main();
+};
+// view depts w/ budget
+const viewDeptWBudget = async () => {
+  const { rows } = await client.viewDeptsWithBudget();
+  console.log('\n', 'Departments With Current Budget: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
 // view roles
 const viewRole = async () => {};
 // view employees
@@ -56,6 +70,9 @@ const main = async () => {
   switch (option) {
     case 'view departments':
       viewDept();
+      break;
+    case 'view departments with budget':
+      viewDeptWBudget();
       break;
     case 'view roles':
       viewRole();
