@@ -1,0 +1,23 @@
+{
+  "name": "cli-postgres-employee-manager",
+  "version": "1.0.0",
+  "description": "Postgres command line app",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asciiart-logo": "^0.2.7",
+    "chalk": "^5.3.0",
+    "console.table": "^0.10.0",
+    "dotenv": "^16.4.5",
+    "inquirer": "^8.2.6",
+    "pg": "^8.11.3"
+  }
+}
