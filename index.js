@@ -30,25 +30,51 @@ const viewDeptWBudget = async () => {
   main();
 };
 // view roles
-const viewRole = async () => {};
+const viewRole = async () => {
+  const { rows } = await client.viewRoles();
+  console.log('\n', 'Roles: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
 // view employees
-const viewEmp = async () => {};
+const viewEmp = async () => {
+  const { rows } = await client.viewEmps();
+  console.log('\n', 'Employees: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
+// view employees
+const viewEmpManager = async () => {
+  const { rows } = await client.viewEmpsByManager();
+  console.log('\n', 'Employees By Selected Manager: ');
+  console.log('<----------------------------------->', '\n');
+  console.table(rows, '\n');
+  main();
+};
 
 // add dept
 const addDept = async () => {
-  const { name } = await prompt(dept);
+  const answers = await prompt(dept);
+  const { rowCount } = await client.add_dept(answers);
+  console.log('\n', `${rowCount} department inserted.`);
+  console.log('<----------------------------------->', '\n');
+  main();
 };
 // add employee
 const addEmp = async () => {
   // retrieve arrays first
-  const { first_name, last_name, role_id, manager_id } = await prompt(
-    employee(roleArr, empArr)
-  );
+  const answers = await prompt(employee(roleArr, empArr));
+  const res = await client.add_emp(answers);
+  console.log(res);
 };
 // add role
 const addRole = async () => {
   // retrieve arrays first
-  const { title, salary, department_id } = await prompt(role(deptArr));
+  const answers = await prompt(role(deptArr));
+  const res = await client.add_role(answers);
+  console.log(res);
 };
 
 // update emp role
@@ -79,6 +105,9 @@ const main = async () => {
       break;
     case 'view employees':
       viewEmp();
+      break;
+    case 'view employees by manager':
+      viewEmpManager();
       break;
     case 'add department':
       addDept();

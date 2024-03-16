@@ -17,7 +17,7 @@ CREATE TABLE role(
     id SMALLSERIAL PRIMARY KEY,
     title VARCHAR(45) NOT NULL,
     salary NUMERIC(10,2) NOT NULL,
-    full_time BOOLEAN NOT NULL DEFAULT TRUE,
+    full_time BOOLEAN NOT NULL DEFAULT true,
     department_id INTEGER NOT NULL,
     FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
