@@ -137,32 +137,20 @@ const updateEmpManager = async () => {
 
 // delete depts
 const deleteDept = async () => {
-  // retrieve arrays first
-  const depts = await client.dept_arr();
-  const deptArr = depts.rows.map((dept) => ({
-    name: dept.name,
-    value: dept.id,
-  }));
+  // TEST: test dept arr
+  const deptArr = getDepts();
   //   TODO: add prompt and class method
 };
 // delete roles
 const deleteRole = async () => {
-  // retrieve arrays first
-  const roles = await client.role_arr();
-  const roleArr = roles.rows.map((role) => ({
-    name: role.title,
-    value: role.id,
-  }));
+  // TEST arr retrieval
+  const roleArr = await getRoles();
   //   TODO: add prompt and class method
 };
 // delete employees
 const deleteEmp = async () => {
-  // retrieve arrays first
-  const emps = await client.emp_arr();
-  const empArr = emps.rows.map((emp) => ({
-    name: `${emp.first_name} ${emp.last_name}`,
-    value: emp.id,
-  }));
+  // TEST arr retrieval
+  const empArr = await getEmployees();
   //   TODO: add prompt and class method
 };
 
