@@ -107,6 +107,7 @@ const addRole = async () => {
   console.log('\n', `${rowCount} role inserted.`);
   console.log('<----------------------------------->', '\n');
   main();
+  // BUG: test the following
 };
 
 // update emp role
@@ -122,6 +123,7 @@ const updateEmpRole = async () => {
     name: `${emp.first_name} ${emp.last_name}`,
     value: emp.id,
   }));
+  //   TODO: add prompt and class method
 };
 // update emp manager
 const updateEmpManager = async () => {
@@ -131,6 +133,7 @@ const updateEmpManager = async () => {
     name: `${emp.first_name} ${emp.last_name}`,
     value: emp.id,
   }));
+  //   FIXME: add prompt and class method
 };
 
 // delete depts
@@ -141,6 +144,7 @@ const deleteDept = async () => {
     name: dept.name,
     value: dept.id,
   }));
+  //   TODO: add prompt and class method
 };
 // delete roles
 const deleteRole = async () => {
@@ -150,6 +154,7 @@ const deleteRole = async () => {
     name: role.title,
     value: role.id,
   }));
+  //   TODO: add prompt and class method
 };
 // delete employees
 const deleteEmp = async () => {
@@ -159,6 +164,7 @@ const deleteEmp = async () => {
     name: `${emp.first_name} ${emp.last_name}`,
     value: emp.id,
   }));
+  //   TODO: add prompt and class method
 };
 
 // main menu
