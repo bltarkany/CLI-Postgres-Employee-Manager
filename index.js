@@ -100,17 +100,10 @@ const addDept = async () => {
 };
 // add employee
 const addEmp = async () => {
-  // retrieve arrays first
-  const roles = await client.role_arr();
-  const roleArr = roles.rows.map((role) => ({
-    name: role.title,
-    value: role.id,
-  }));
-  const emps = await client.emp_arr();
-  const empArr = emps.rows.map((emp) => ({
-    name: `${emp.first_name} ${emp.last_name}`,
-    value: emp.id,
-  }));
+  // TEST: test arr retrieval from get functions
+  const roleArr = await getRoles();
+  const empArr = await getEmployees();
+  console.log(roleArr, empArr);
   const answers = await prompt(employee(roleArr, empArr));
   const { rowCount } = await client.add_emp(answers);
   console.log('\n', `${rowCount} employee inserted.`);
